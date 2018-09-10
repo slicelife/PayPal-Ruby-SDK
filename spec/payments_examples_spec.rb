@@ -297,6 +297,16 @@ describe "Payments" do
         expect(auth.state).to eq("Pending")
       end
 
+      it "Authorize (with amount)", :disabled => true do
+        auth = order.authorize({
+          "amount" => {
+            "currency" => "USD",
+            "total" => "1.00"
+          }
+        })
+        expect(auth.state).to eq("Pending")
+      end
+
       it "Capture", :disabled => true do
         capture = Capture.new({
             "amount" => {
