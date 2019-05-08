@@ -70,6 +70,7 @@ module PayPal::SDK
           object_of :create_time, String
           object_of :update_time, String
           array_of  :links, Links
+          object_of :application_context, ApplicationContext
           object_of :note_to_payer, String
           array_of  :billing_agreement_tokens, String
           object_of :potential_payer_info, PotentialPayerInfo
@@ -709,6 +710,12 @@ module PayPal::SDK
           object_of :payment_options, PaymentOptions
         end
       end
+
+      class ApplicationContext < Base
+        def self.load_members
+          object_of :shipping_preference, String
+        end
+        end
 
       class CartBase < Base
         def self.load_members

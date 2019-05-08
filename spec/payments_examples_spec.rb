@@ -6,6 +6,9 @@ describe "Payments" do
 
   PaymentAttributes = {
         "intent" =>  "sale",
+        "application_context" => {
+          "shipping_preference": "NO_SHIPPING"
+        },
         "payer" =>  {
           "payment_method" =>  "credit_card",
           "funding_instruments" =>  [ {
