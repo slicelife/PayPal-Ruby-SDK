@@ -451,25 +451,5 @@ describe "Payments" do
       end
 
     end
-
-    describe 'BillingAgreement' do
-      it "Create" do
-        billing_agreement = BillingAgreement.new({
-          "token_id" => "BA-123"
-        })
-        billing_agreement.create
-        expect(billing_agreement.error).to be_nil
-        expect(billing_agreement.id).not_to be_nil
-      end
-    end
-
-    describe 'BillingAgreementToken' do
-      it "Create" do
-        billing_agreement_token = BillingAgreementToken.new
-        billing_agreement_token.create
-        expect(billing_agreement_token.error).to be_nil
-        expect(billing_agreement_token.token_id).not_to be_nil
-      end
-    end
   end
 end
