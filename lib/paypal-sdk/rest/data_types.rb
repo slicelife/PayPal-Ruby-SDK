@@ -711,12 +711,6 @@ module PayPal::SDK
         end
       end
 
-      class ApplicationContext < Base
-        def self.load_members
-          object_of :shipping_preference, String
-        end
-        end
-
       class CartBase < Base
         def self.load_members
           object_of :amount, Amount
@@ -2224,6 +2218,12 @@ module PayPal::SDK
           object_of :method, String
           object_of :encType, String
           object_of :schema, HyperSchema
+        end
+      end
+
+      class ApplicationContext < Base
+        def self.load_members
+          object_of :shipping_preference, String
         end
       end
 
