@@ -31,6 +31,9 @@ describe "Payments" do
 
   PaymentAttributesPayPal = {
         "intent" =>  "sale",
+        "application_context" => {
+          "shipping_preference": "NO_SHIPPING"
+        },
         "payer" =>  {
           "payment_method" =>  "paypal"
         },
@@ -46,6 +49,9 @@ describe "Payments" do
 
   FuturePaymentAttributes = {
         "intent" =>  "authorize",
+        "application_context" => {
+          "shipping_preference": "NO_SHIPPING"
+        },
         "payer" =>  {
           "payment_method" =>  "paypal" },
         "transactions" =>  [ {
