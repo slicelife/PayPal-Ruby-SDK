@@ -6,6 +6,9 @@ describe "Payments" do
 
   PaymentAttributes = {
         "intent" =>  "sale",
+        "application_context" => {
+          "shipping_preference": "NO_SHIPPING"
+        },
         "payer" =>  {
           "payment_method" =>  "credit_card",
           "funding_instruments" =>  [ {
@@ -28,6 +31,9 @@ describe "Payments" do
 
   PaymentAttributesPayPal = {
         "intent" =>  "sale",
+        "application_context" => {
+          "shipping_preference": "NO_SHIPPING"
+        },
         "payer" =>  {
           "payment_method" =>  "paypal"
         },
@@ -43,6 +49,9 @@ describe "Payments" do
 
   FuturePaymentAttributes = {
         "intent" =>  "authorize",
+        "application_context" => {
+          "shipping_preference": "NO_SHIPPING"
+        },
         "payer" =>  {
           "payment_method" =>  "paypal" },
         "transactions" =>  [ {
@@ -441,26 +450,6 @@ describe "Payments" do
         expect(credit_card_list.total_items).to be > 0
       end
 
-    end
-
-    describe 'BillingAgreement' do
-      it "Create" do
-        billing_agreement = BillingAgreement.new({
-          "token_id" => "BA-123"
-        })
-        billing_agreement.create
-        expect(billing_agreement.error).to be_nil
-        expect(billing_agreement.id).not_to be_nil
-      end
-    end
-
-    describe 'BillingAgreementToken' do
-      it "Create" do
-        billing_agreement_token = BillingAgreementToken.new
-        billing_agreement_token.create
-        expect(billing_agreement_token.error).to be_nil
-        expect(billing_agreement_token.token_id).not_to be_nil
-      end
     end
   end
 end
