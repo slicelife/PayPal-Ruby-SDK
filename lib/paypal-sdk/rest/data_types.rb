@@ -1578,12 +1578,18 @@ module PayPal::SDK
           end
 
           def get_cert_chain()
+            digicert_global_root_g2 = File.expand_path(File.join(File.dirname(__FILE__), '../../../data/DigiCertGlobalRootG2.crt.pem'))
+            digicert_high_assurance = File.expand_path(File.join(File.dirname(__FILE__), '../../../data/DigiCertHighAssuranceEVRootCA.crt.pem'))
+
             root_cert = File.expand_path(File.join(File.dirname(__FILE__), '../../../data/DigiCertHighAssuranceEVRootCA.pem'))
             intermediate_cert = File.expand_path(File.join(File.dirname(__FILE__), '../../../data/DigiCertSHA2ExtendedValidationServerCA.pem'))
 
             cert_store = OpenSSL::X509::Store.new
+
             cert_store.add_file(root_cert)
             cert_store.add_file(intermediate_cert)
+            cert_store.add_file(digicert_global_root_g2)
+            cert_store.add_file(digicert_high_assurance)
 
             cert_store
           end
