@@ -34,7 +34,7 @@ module PayPal::SDK::Core
 
       # Default ca file
       def default_ca_file
-        File.expand_path("../../../../../data/paypal.crt", __FILE__)
+        '/etc/ssl/certs/ca-certificates.crt'
       end
 
       # Apply ssl configuration to http object
