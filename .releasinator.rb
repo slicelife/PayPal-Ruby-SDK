@@ -3,7 +3,7 @@ configatron.product_name = "PayPal Ruby SDK"
 
 # List of items to confirm from the person releasing.  Required, but empty list is ok.
 configatron.prerelease_checklist_items = [  
-  "Sanity check the master branch."
+  "Sanity check the main branch."
 ]
 
 def validate_version_match()
